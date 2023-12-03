@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->uuid()->primary();
-            $table->string('username');
-            $table->string('password');
-            $table->integer('level');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::table('subkriterias', function (Blueprint $table) {
+            $table->foreign('kode_kriteria')->references('kode_kriteria')->on('kriterias')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -26,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        //
     }
 };

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KecamatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route(
+        'login'
+    ));
+});
+
+Route::get('/login', [
+    App\Http\Controllers\AuthController::class,
+    'viewLogin'
+])->name('login');
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+], function () {
+
+    Route::get('dashboard', function () {
+        return view('admin.dashboard', [
+            'title' => 'Dashboard'
+        ]);
+    })->name('dashboard');
+
+    Route::resource('kecamatan', KecamatanController::class)->name('kecamatan', '*');
 });
