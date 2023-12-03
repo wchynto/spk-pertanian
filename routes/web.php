@@ -24,8 +24,17 @@ Route::get('/login', [
     App\Http\Controllers\AuthController::class,
     'viewLogin'
 ])->name('login');
+Route::post('/login', [
+    App\Http\Controllers\AuthController::class,
+    'authenticate'
+])->name('authenticate');
+Route::get('/logout', [
+    App\Http\Controllers\AuthController::class,
+    'logout'
+])->name('logout');
 
 Route::group([
+    'middleware' => ['auth', 'prevent-back-history'],
     'prefix' => 'admin',
     'as' => 'admin.',
 ], function () {
