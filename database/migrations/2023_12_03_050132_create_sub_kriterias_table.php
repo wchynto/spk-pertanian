@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('nilai');
             $table->string('kode_kriteria');
             $table->timestamps();
+
+            $table->foreign('kode_kriteria')->references('kode_kriteria')->on('kriterias')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

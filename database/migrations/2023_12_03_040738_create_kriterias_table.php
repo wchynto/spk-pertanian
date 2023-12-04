@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nama_kriteria');
             $table->string('jenis_kriteria');
             $table->double('bobot_nilai');
-            $table->string('kode_nilai_alternatif_desa');
             $table->timestamps();
         });
     }

@@ -23,8 +23,8 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header d-flex justify-content-end">
-                                    <a name="" class="btn btn-primary"
-                                        href="{{ route('admin.alternatif-desa.create') }}" role="button">
+                                    <a name="" class="btn btn-primary" href="{{ route('admin.kriteria.create') }}"
+                                        role="button">
                                         <i class="align-middle" data-feather="plus"></i>
                                         Tambah
                                     </a>
@@ -34,8 +34,9 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col"></th>
-                                                <th scope="col">Nama Desa</th>
-                                                <th scope="col">Luas Tanah</th>
+                                                <th scope="col">Nama Kriteria</th>
+                                                <th scope="col">Jenis Kriteria</th>
+                                                <th scope="col">Bobot Nilai</th>
                                                 <th scope="col">Aksi</th>
                                             </tr>
                                         </thead>
@@ -43,20 +44,21 @@
                                             @php
                                                 $i = 1;
                                             @endphp
-                                            @foreach ($alternatif_desa as $a)
+                                            @foreach ($kriteria as $k)
                                                 <tr>
                                                     <th scope="row">{{ $i++ }}</th>
-                                                    <td>{{ $a->nama_desa }}</td>
-                                                    <td>{{ $a->luas_tanah }} hektar</td>
+                                                    <td>{{ $k->nama_kriteria }}</td>
+                                                    <td>{{ $k->jenis_kriteria }}</td>
+                                                    <td>{{ $k->bobot_nilai }}</td>
                                                     <td>
                                                         <div class="d-flex">
                                                             <a class="btn btn-primary m-1"
-                                                                href="{{ route('admin.alternatif-desa.edit', $a->kode_alternatif_desa) }}"
+                                                                href="{{ route('admin.kriteria.edit', $k->kode_kriteria) }}"
                                                                 role="button">
                                                                 <i class="align-middle" data-feather="edit-2"></i>
                                                             </a>
                                                             <form
-                                                                action="{{ route('admin.alternatif-desa.destroy', $a->kode_alternatif_desa) }}""
+                                                                action="{{ route('admin.kriteria.destroy', $k->kode_kriteria) }}"
                                                                 method="post">
                                                                 @csrf
                                                                 @method('delete')

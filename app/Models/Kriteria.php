@@ -14,4 +14,11 @@ class Kriteria extends Model
     protected $keyType = 'string';
 
     public $incrementing = false;
+
+    protected $fillable = [
+        'kode_kriteria',
+        'nama_kriteria',
+        'bobot_nilai',
+        'jenis_kriteria'
+    ];
 }

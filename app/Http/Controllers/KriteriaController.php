@@ -14,7 +14,10 @@ class KriteriaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.kriteria.kriteria', [
+            'title' => 'Kelola Kriteria',
+            'kriteria' => Kriteria::all()
+        ]);
     }
 
     /**
@@ -22,7 +25,9 @@ class KriteriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kriteria.kriteria_create', [
+            'title' => 'Tambah Kriteria',
+        ]);
     }
 
     /**
@@ -32,14 +37,15 @@ class KriteriaController extends Controller
     {
         $rules = [
             'nama_kriteria' => 'required',
-            'bobot_nilai' => 'required',
-            'tipe_kriteria' => 'required'
+            'bobot_nilai' => 'required|numeric',
+            'jenis_kriteria' => 'required'
         ];
 
         $messages = [
             'nama_kriteria.required' => 'Nama kriteria tidak boleh kosong.',
             'bobot_nilai.required' => 'Bobot kriteria tidak boleh kosong.',
-            'tipe_kriteria.required' => 'Tipe kriteria tidak boleh kosong.'
+            'jenis_kriteria.required' => 'Jenis kriteria tidak boleh kosong.',
+            'bobot_nilai.numeric' => 'Bobot kriteria harus berupa angka.'
         ];
 
         $validator =  Validator::make($request->all(), $rules, $messages);
@@ -52,8 +58,7 @@ class KriteriaController extends Controller
             'kode_kriteria' => uniqid(),
             'nama_kriteria' => $request->nama_kriteria,
             'bobot_nilai' => $request->bobot_nilai,
-            'tipe_kriteria' => $request->tipe_kriteria,
-            'kode_nilai_alternatif_desa' => $request->kode_nilai_alternatif_desa
+            'jenis_kriteria' => $request->jenis_kriteria,
         ]);
 
         return back()->with('success', 'Data kriteria berhasil ditambahkan.');
@@ -72,7 +77,10 @@ class KriteriaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.kriteria.kriteria_edit', [
+            'title' => 'Edit Kriteria',
+            'kriteria' => Kriteria::find($id)
+        ]);
     }
 
     /**
@@ -82,14 +90,15 @@ class KriteriaController extends Controller
     {
         $rules = [
             'nama_kriteria' => 'required',
-            'bobot_nilai' => 'required',
-            'tipe_kriteria' => 'required'
+            'bobot_nilai' => 'required|numeric',
+            'jenis_kriteria' => 'required'
         ];
 
         $messages = [
             'nama_kriteria.required' => 'Nama kriteria tidak boleh kosong.',
             'bobot_nilai.required' => 'Bobot kriteria tidak boleh kosong.',
-            'tipe_kriteria.required' => 'Tipe kriteria tidak boleh kosong.'
+            'jenis_krit,eria.required' => 'Jenis kriteria tidak boleh kosong.',
+            'bobot_nilai.numeric' => 'Bobot kriteria harus berupa angka.'
         ];
 
         $validator =  Validator::make($request->all(), $rules, $messages);
@@ -101,11 +110,10 @@ class KriteriaController extends Controller
         Kriteria::find($id)->update([
             'nama_kriteria' => $request->nama_kriteria,
             'bobot_nilai' => $request->bobot_nilai,
-            'tipe_kriteria' => $request->tipe_kriteria,
-            'kode_nilai_alternatif_desa' => $request->kode_nilai_alternatif_desa
+            'jenis_kriteria' => $request->jenis_kriteria,
         ]);
 
-        return back()->with('success', 'Data kriteria berhasil ditambahkan.');
+        return back()->with('success', 'Data kriteria berhasil diubah.');
     }
 
     /**

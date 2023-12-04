@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlternatifDesaController;
 use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\KriteriaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,4 +49,5 @@ Route::group([
 
     Route::resource('kecamatan', KecamatanController::class)->name('kecamatan', '*');
     Route::resource('alternatif-desa', AlternatifDesaController::class)->name('alternatif-desa', '*');
+    Route::resource('kriteria', KriteriaController::class)->name('kriteria', '*');
 });

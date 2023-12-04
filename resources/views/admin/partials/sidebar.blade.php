@@ -25,8 +25,9 @@
                 </a>
             </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="kelola-kriteria.html">
+            <li
+                class="sidebar-item {{ $title == 'Kelola Kriteria' || $title == 'Tambah Kriteria' || $title == 'Edit Kriteria' ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('admin.kriteria.index') }}">
                     <span class="align-middle">Kelola Kriteria</span>
                 </a>
             </li>
