@@ -22,4 +22,9 @@ class AlternatifDesa extends Model
         'luas_tanah',
         'kode_kecamatan'
     ];
+
+    public function nilaiAlternatifDesa()
+    {
+        return $this->hasMany(NilaiAlternatifDesa::class, 'kode_alternatif_desa', 'kode_alternatif_desa');
+    }
 }

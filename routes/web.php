@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlternatifDesaController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\NilaiAlternatifDesaController;
 use App\Http\Controllers\SubkriteriaController;
 use Illuminate\Support\Facades\Route;
 
@@ -65,5 +66,6 @@ Route::group([
             ]);
         })->name('dashboard');
         Route::resource('alternatif-desa', AlternatifDesaController::class)->name('alternatif-desa', '*');
+        Route::resource('nilai-alternatif-desa', NilaiAlternatifDesaController::class)->name('nilai-alternatif-desa', '*');
     });
 });
