@@ -12,14 +12,15 @@
             </li>
 
             <li
-                class="sidebar-item  {{ $title == 'Kelola Kecamatan' || $title == 'Tambah Kecamatan' ? 'active' : '' }}">
+                class="sidebar-item  {{ $title == 'Kelola Kecamatan' || $title == 'Tambah Kecamatan' || $title == 'Edit Kecamatan' ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('admin.kecamatan.index') }}">
                     <span class="align-middle"></span>Kelola Kecamatan</span>
                 </a>
             </li>
 
-            <li class="sidebar-item">
-                <a class="sidebar-link" href="{{ route('admin.kecamatan.index') }}">
+            <li
+                class="sidebar-item {{ $title == 'Kelola Alternatif Desa' || $title == 'Tambah Alternatif Desa' || $title == 'Edit Alternatif Desa' ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('admin.alternatif-desa.index') }}">
                     <span class="align-middle">Kelola Desa</span>
                 </a>
             </li>

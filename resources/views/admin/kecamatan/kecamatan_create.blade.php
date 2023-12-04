@@ -9,7 +9,7 @@
                 <div class="container-fluid p-0">
                     <div class="mb-3">
                         <a href="{{ route('admin.kecamatan.index') }}"> <i class="align-middle" data-feather="arrow-left"></i>
-                            Kembali ke {{ $title }}</a>
+                            Kembali ke Kelola Kecamatan</a>
                     </div>
                     <h1 class="h3 mb-3">{{ $title }}</h1>
                     <div class="row">

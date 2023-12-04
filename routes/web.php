@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlternatifDesaController;
 use App\Http\Controllers\KecamatanController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,4 +47,5 @@ Route::group([
     })->name('dashboard');
 
     Route::resource('kecamatan', KecamatanController::class)->name('kecamatan', '*');
+    Route::resource('alternatif-desa', AlternatifDesaController::class)->name('alternatif-desa', '*');
 });

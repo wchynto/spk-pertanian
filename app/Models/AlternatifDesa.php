@@ -9,9 +9,17 @@ class AlternatifDesa extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'kode_alernatif_desa';
+    protected $primaryKey = 'kode_alternatif_desa';
 
     protected $keyType = 'string';
 
     public $incrementing = false;
+
+    protected $fillable = [
+        'kode_alternatif_desa',
+        'nama_desa',
+        'hasil_perhitungan',
+        'luas_tanah',
+        'kode_kecamatan'
+    ];
 }
