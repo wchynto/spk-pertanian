@@ -25,7 +25,15 @@ class AuthController extends Controller
         if (Auth::attempt($credentaials, $request->has('remember') ? true : false)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('admin/dashboard');
+            switch (Auth::user()->level) {
+                case 1:
+                    return redirect()->intended('admin/dashboard');
+                    break;
+
+                case 2:
+                    return redirect()->intended('user/dashboard');
+                    break;
+            }
         }
 
         return back()->with('error', 'Email atau Password salah!')->withInput($request->only('username'));

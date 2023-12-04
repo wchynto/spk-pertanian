@@ -14,7 +14,7 @@ class AlternatifDesaController extends Controller
      */
     public function index()
     {
-        return view('admin.alternatif_desa.alternatif_desa', [
+        return view('user.alternatif_desa.alternatif_desa', [
             'title' => 'Kelola Alternatif Desa',
             'alternatif_desa' => AlternatifDesa::all(),
         ]);
@@ -25,7 +25,7 @@ class AlternatifDesaController extends Controller
      */
     public function create()
     {
-        return view('admin.alternatif_desa.alternatif_desa_create', [
+        return view('user.alternatif_desa.alternatif_desa_create', [
             'title' => 'Tambah Alternatif Desa',
             'kecamatan' => Kecamatan::all()
         ]);
@@ -51,7 +51,7 @@ class AlternatifDesaController extends Controller
         $validator =  Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            return redirect(route('admin.alternatif-desa.create'))->with('error', $validator->errors()->first())->withInput($request->all);
+            return redirect(route('user.alternatif-desa.create'))->with('error', $validator->errors()->first())->withInput($request->all);
         }
 
         AlternatifDesa::create([
@@ -77,7 +77,7 @@ class AlternatifDesaController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.alternatif_desa.alternatif_desa_edit', [
+        return view('user.alternatif_desa.alternatif_desa_edit', [
             'title' => 'Edit Alternatif Desa',
             'alternatif_desa' => AlternatifDesa::find($id),
             'kecamatan' => Kecamatan::all()
@@ -104,7 +104,7 @@ class AlternatifDesaController extends Controller
         $validator =  Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            return redirect(route('admin.alternatif-desa.create'))->with('error', $validator->errors()->first())->withInput($request->all);
+            return redirect(route('user.alternatif-desa.create'))->with('error', $validator->errors()->first())->withInput($request->all);
         }
 
         AlternatifDesa::find($id)->update([

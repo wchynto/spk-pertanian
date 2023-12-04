@@ -8,7 +8,7 @@
             <main class="content">
                 <div class="container-fluid p-0">
                     <div class="mb-3">
-                        <a href="{{ route('admin.alternatif-desa.index') }}"> <i class="align-middle"
+                        <a href="{{ route('user.alternatif-desa.index') }}"> <i class="align-middle"
                                 data-feather="arrow-left"></i>
                             Kembali ke Kelola Alternatif Desa</a>
                     </div>
@@ -17,7 +17,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <form action="{{ route('admin.alternatif-desa.store') }}" method="post">
+                                    <form action="{{ route('user.alternatif-desa.store') }}" method="post">
                                         @csrf
                                         @method('POST')
                                         <div class="mb-3">

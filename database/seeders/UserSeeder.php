@@ -19,5 +19,12 @@ class UserSeeder extends Seeder
             'password' => bcrypt('admin512'),
             'level' => 1,
         ]);
+
+        DB::table('users')->insert([
+            'uuid' => uniqid(),
+            'username' => 'user',
+            'password' => bcrypt('user215'),
+            'level' => 2,
+        ]);
     }
 }

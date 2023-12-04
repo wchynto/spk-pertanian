@@ -51,7 +51,7 @@ class KriteriaController extends Controller
         $validator =  Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            return redirect(route('admin.kriteria.create'))->with('error', $validator->errors()->first())->withInput($request->all);
+            return back()->with('error', $validator->errors()->first())->withInput($request->all);
         }
 
         Kriteria::create([
@@ -104,7 +104,7 @@ class KriteriaController extends Controller
         $validator =  Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            return redirect(route('admin.kriteria.create'))->with('error', $validator->errors()->first())->withInput($request->all);
+            return back()->with('error', $validator->errors()->first())->withInput($request->all);
         }
 
         Kriteria::find($id)->update([

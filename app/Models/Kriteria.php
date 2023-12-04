@@ -21,4 +21,9 @@ class Kriteria extends Model
         'bobot_nilai',
         'jenis_kriteria'
     ];
+
+    public function subkriteria()
+    {
+        return $this->hasMany(Subkriteria::class, 'kode_kriteria', 'kode_kriteria');
+    }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlternatifDesaController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\SubkriteriaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,17 +38,32 @@ Route::get('/logout', [
 
 Route::group([
     'middleware' => ['auth', 'prevent-back-history'],
-    'prefix' => 'admin',
-    'as' => 'admin.',
 ], function () {
+    Route::group([
+        'middleware' => 'admin',
+        'prefix' => 'admin',
+        'as' => 'admin.',
+    ], function () {
+        Route::get('dashboard', function () {
+            return view('admin.dashboard', [
+                'title' => 'Dashboard'
+            ]);
+        })->name('dashboard');
+        Route::resource('kecamatan', KecamatanController::class)->name('kecamatan', '*');
+        Route::resource('kriteria', KriteriaController::class)->name('kriteria', '*');
+        Route::resource('subkriteria', SubkriteriaController::class)->name('subkriteria', '*');
+    });
 
-    Route::get('dashboard', function () {
-        return view('admin.dashboard', [
-            'title' => 'Dashboard'
-        ]);
-    })->name('dashboard');
-
-    Route::resource('kecamatan', KecamatanController::class)->name('kecamatan', '*');
-    Route::resource('alternatif-desa', AlternatifDesaController::class)->name('alternatif-desa', '*');
-    Route::resource('kriteria', KriteriaController::class)->name('kriteria', '*');
+    Route::group([
+        'middleware' => 'user',
+        'prefix' => 'user',
+        'as' => 'user.',
+    ], function () {
+        Route::get('dashboard', function () {
+            return view('user.dashboard', [
+                'title' => 'Dashboard'
+            ]);
+        })->name('dashboard');
+        Route::resource('alternatif-desa', AlternatifDesaController::class)->name('alternatif-desa', '*');
+    });
 });
