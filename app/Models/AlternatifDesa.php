@@ -27,4 +27,9 @@ class AlternatifDesa extends Model
     {
         return $this->hasMany(NilaiAlternatifDesa::class, 'kode_alternatif_desa', 'kode_alternatif_desa');
     }
+
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class, 'kode_kecamatan', 'kode_kecamatan');
+    }
 }

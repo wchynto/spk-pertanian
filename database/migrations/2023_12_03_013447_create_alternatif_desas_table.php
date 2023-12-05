@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('kode_alternatif_desa')->unique()->primary();
             $table->string('nama_desa');
             $table->string('luas_tanah');
-            $table->double('hasil_perhitungan')->nullable();
             $table->string('kode_kecamatan');
             $table->timestamps();
 

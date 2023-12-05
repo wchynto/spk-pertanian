@@ -18,6 +18,7 @@ return new class extends Migration
             $table->double('nilai_c3');
             $table->double('nilai_c4');
             $table->double('nilai_c5');
+            $table->double('hasil_perhitungan')->nullable();
             $table->string('kode_alternatif_desa');
             $table->string('kode_subkriteria');
             $table->timestamps();

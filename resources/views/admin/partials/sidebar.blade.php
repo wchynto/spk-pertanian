@@ -56,8 +56,9 @@
                         <span class="align-middle">Kelola Nilai Alternatif Desa</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('user.nilai-alternatif-desa.index') }}">
+                <li
+                    class="sidebar-item {{ $title == 'Normalisasi' || $title == 'Normalisasi Terbobot' || $title == 'Hasil Akhir' ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{ route('user.perhitungan-moora.normalisasi') }}">
                         <span class="align-middle">Kelola Perhitungan MOORA</span>
                     </a>
                 </li>

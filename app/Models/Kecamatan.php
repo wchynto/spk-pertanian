@@ -20,4 +20,9 @@ class Kecamatan extends Model
         'nama_kecamatan',
         'alamat_kecamatan'
     ];
+
+    public function kecamatan()
+    {
+        return $this->hasMany(AlternatifDesa::class, 'kode_kecamatan', 'kode_kecamatan');
+    }
 }
