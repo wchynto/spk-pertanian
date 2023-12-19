@@ -30,20 +30,12 @@
                         <span class="align-middle">Kelola Subkriteria</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                {{-- <li class="sidebar-item">
                     <a class="sidebar-link" href="kelola-laporan.html">
                         <span class="align-middle">Kelola Laporan</span>
                     </a>
-                </li>
-            @endif
+                </li> --}}
 
-            {{-- User sidebar navigation --}}
-            @if (Auth::user()->level == 2)
-                <li class="sidebar-item {{ $title == 'Dashboard' ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('user.dashboard') }}">
-                        <span class="align-middle">Dashboard</span>
-                    </a>
-                </li>
                 <li
                     class="sidebar-item {{ $title == 'Kelola Alternatif Desa' || $title == 'Tambah Alternatif Desa' || $title == 'Edit Alternatif Desa' ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('user.alternatif-desa.index') }}">
@@ -56,13 +48,27 @@
                         <span class="align-middle">Kelola Nilai Alternatif Desa</span>
                     </a>
                 </li>
-                <li
-                    class="sidebar-item {{ $title == 'Normalisasi' || $title == 'Normalisasi Terbobot' || $title == 'Hasil Akhir' ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('user.perhitungan-moora.normalisasi') }}">
-                        <span class="align-middle">Kelola Perhitungan MOORA</span>
+            @endif
+
+            {{-- User sidebar navigation --}}
+            @if (Auth::user()->level == 2)
+                <li class="sidebar-item {{ $title == 'Dashboard' ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{ route('user.dashboard') }}">
+                        <span class="align-middle">Dashboard</span>
                     </a>
                 </li>
             @endif
+
+            @php
+                $prefix = \Route::current()->getPrefix();
+            @endphp
+
+            <li
+                class="sidebar-item {{ $title == 'Normalisasi' || $title == 'Normalisasi Terbobot' || $title == 'Hasil Akhir' ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route("$prefix.perhitungan-moora.normalisasi") }}">
+                    <span class="align-middle">Kelola Perhitungan MOORA</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

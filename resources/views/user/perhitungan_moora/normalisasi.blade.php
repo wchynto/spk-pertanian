@@ -1,7 +1,8 @@
 @extends('app')
 
-@push('css')
-@endpush
+@php
+    $prefix = \Route::current()->getPrefix();
+@endphp
 
 @push('js')
     <script>
@@ -24,7 +25,7 @@
                             <div class="card">
                                 <div class="card-header d-flex justify-content-end">
                                     <a name="" class="btn btn-primary"
-                                        href="{{ route('user.perhitungan-moora.normalisasi-terbobot') }}" role="button">
+                                        href="{{ route("$prefix.perhitungan-moora.normalisasi-terbobot") }}" role="button">
                                         Normalisasi Terbobot
                                     </a>
                                 </div>

@@ -20,11 +20,9 @@ return new class extends Migration
             $table->double('nilai_c5');
             $table->double('hasil_perhitungan')->nullable();
             $table->string('kode_alternatif_desa');
-            $table->string('kode_subkriteria');
             $table->timestamps();
 
             $table->foreign('kode_alternatif_desa')->references('kode_alternatif_desa')->on('alternatif_desas')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('kode_subkriteria')->references('kode_subkriteria')->on('subkriterias')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

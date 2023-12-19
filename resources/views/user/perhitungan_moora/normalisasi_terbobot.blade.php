@@ -1,7 +1,8 @@
 @extends('app')
 
-@push('css')
-@endpush
+@php
+    $prefix = \Route::current()->getPrefix();
+@endphp
 
 @push('js')
     <script>
@@ -19,9 +20,9 @@
             <main class="content">
                 <div class="container-fluid p-0">
                     <div class="mb-3">
-                        <a href="{{ route('user.perhitungan-moora.normalisasi') }}"> <i class="align-middle"
+                        <a href="{{ route("$prefix.perhitungan-moora.normalisasi") }}"> <i class="align-middle"
                                 data-feather="arrow-left"></i>
-                            Kembali ke Normalisasi Terbobot</a>
+                            Kembali ke Normalisasi</a>
                     </div>
                     <h1 class="h3 mb-3">{{ $title }}</h1>
                     <div class="row">
@@ -29,7 +30,7 @@
                             <div class="card">
                                 <div class="card-header d-flex justify-content-end">
                                     <a name="" class="btn btn-primary"
-                                        href="{{ route('user.perhitungan-moora.hasil-akhir') }}" role="button">
+                                        href="{{ route("$prefix.perhitungan-moora.hasil-akhir") }}" role="button">
                                         Hasil Akhir
                                     </a>
                                 </div>

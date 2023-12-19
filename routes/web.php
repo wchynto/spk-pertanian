@@ -53,6 +53,18 @@ Route::group([
         Route::resource('kecamatan', KecamatanController::class)->name('kecamatan', '*');
         Route::resource('kriteria', KriteriaController::class)->name('kriteria', '*');
         Route::resource('subkriteria', SubkriteriaController::class)->name('subkriteria', '*');
+        Route::get('perhitungan-moora/normalisasi', [
+            App\Http\Controllers\PerhitunganMooraController::class,
+            'normalisasiView'
+        ])->name('perhitungan-moora.normalisasi');
+        Route::get('perhitungan-moora/normalisasi-terbobot', [
+            App\Http\Controllers\PerhitunganMooraController::class,
+            'normalisasiTerbobotView'
+        ])->name('perhitungan-moora.normalisasi-terbobot');
+        Route::get('perhitungan-moora/hasil-akhir', [
+            App\Http\Controllers\PerhitunganMooraController::class,
+            'hasilAkhirView'
+        ])->name('perhitungan-moora.hasil-akhir');
     });
 
     Route::group([

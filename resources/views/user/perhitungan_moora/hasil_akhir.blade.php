@@ -1,7 +1,8 @@
 @extends('app')
 
-@push('css')
-@endpush
+@php
+    $prefix = \Route::current()->getPrefix();
+@endphp
 
 @push('js')
     <script>
@@ -19,9 +20,9 @@
             <main class="content">
                 <div class="container-fluid p-0">
                     <div class="mb-3">
-                        <a href="{{ route('user.perhitungan-moora.normalisasi-terbobot') }}"> <i class="align-middle"
+                        <a href="{{ route("$prefix.perhitungan-moora.normalisasi-terbobot") }}"> <i class="align-middle"
                                 data-feather="arrow-left"></i>
-                            Kembali ke Normalisasi</a>
+                            Kembali ke Normalisasi Terbobot</a>
                     </div>
                     <h1 class="h3 mb-3">{{ $title }}</h1>
                     <div class="row">
@@ -45,8 +46,8 @@
                                             @foreach ($alternatif_desa as $a)
                                                 <tr>
                                                     <th scope="row">{{ $i++ }}</th>
-                                                    <td>{{ $a->kecamatan->nama_kecamatan }}</td>
-                                                    <td>{{ $a->nama_desa }}</td>
+                                                    <td>{{ $a->alternatifDesa->kecamatan->nama_kecamatan }}</td>
+                                                    <td>{{ $a->alternatifDesa->nama_desa }}</td>
                                                     <td>{{ $a->luas_tanah }} hektar</td>
                                                     <td>{{ $a->hasil_perhitungan }}</td>
                                                 </tr>
