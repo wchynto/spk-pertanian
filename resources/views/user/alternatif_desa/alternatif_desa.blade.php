@@ -24,7 +24,7 @@
                             <div class="card">
                                 <div class="card-header d-flex justify-content-end">
                                     <a name="" class="btn btn-primary"
-                                        href="{{ route('user.alternatif-desa.create') }}" role="button">
+                                        href="{{ route('admin.alternatif-desa.create') }}" role="button">
                                         <i class="align-middle" data-feather="plus"></i>
                                         Tambah
                                     </a>
@@ -51,12 +51,12 @@
                                                     <td>
                                                         <div class="d-flex">
                                                             <a class="btn btn-primary m-1"
-                                                                href="{{ route('user.alternatif-desa.edit', $a->kode_alternatif_desa) }}"
+                                                                href="{{ route('admin.alternatif-desa.edit', $a->kode_alternatif_desa) }}"
                                                                 role="button">
                                                                 <i class="align-middle" data-feather="edit-2"></i>
                                                             </a>
                                                             <form
-                                                                action="{{ route('user.alternatif-desa.destroy', $a->kode_alternatif_desa) }}""
+                                                                action="{{ route('admin.alternatif-desa.destroy', $a->kode_alternatif_desa) }}""
                                                                 method="post">
                                                                 @csrf
                                                                 @method('delete')

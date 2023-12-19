@@ -38,13 +38,13 @@
 
                 <li
                     class="sidebar-item {{ $title == 'Kelola Alternatif Desa' || $title == 'Tambah Alternatif Desa' || $title == 'Edit Alternatif Desa' ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('user.alternatif-desa.index') }}">
+                    <a class="sidebar-link" href="{{ route('admin.alternatif-desa.index') }}">
                         <span class="align-middle">Kelola Desa</span>
                     </a>
                 </li>
                 <li
                     class="sidebar-item {{ $title == 'Kelola Nilai Alternatif Desa' || $title == 'Tambah Nilai Alternatif Desa' || $title == 'Edit Nilai Alternatif Desa' ? 'active' : '' }}">
-                    <a class="sidebar-link" href="{{ route('user.nilai-alternatif-desa.index') }}">
+                    <a class="sidebar-link" href="{{ route('admin.nilai-alternatif-desa.index') }}">
                         <span class="align-middle">Kelola Nilai Alternatif Desa</span>
                     </a>
                 </li>

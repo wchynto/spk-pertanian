@@ -53,6 +53,8 @@ Route::group([
         Route::resource('kecamatan', KecamatanController::class)->name('kecamatan', '*');
         Route::resource('kriteria', KriteriaController::class)->name('kriteria', '*');
         Route::resource('subkriteria', SubkriteriaController::class)->name('subkriteria', '*');
+        Route::resource('alternatif-desa', AlternatifDesaController::class)->name('alternatif-desa', '*');
+        Route::resource('nilai-alternatif-desa', NilaiAlternatifDesaController::class)->name('nilai-alternatif-desa', '*');
         Route::get('perhitungan-moora/normalisasi', [
             App\Http\Controllers\PerhitunganMooraController::class,
             'normalisasiView'
@@ -77,8 +79,6 @@ Route::group([
                 'title' => 'Dashboard'
             ]);
         })->name('dashboard');
-        Route::resource('alternatif-desa', AlternatifDesaController::class)->name('alternatif-desa', '*');
-        Route::resource('nilai-alternatif-desa', NilaiAlternatifDesaController::class)->name('nilai-alternatif-desa', '*');
         Route::get('perhitungan-moora/normalisasi', [
             App\Http\Controllers\PerhitunganMooraController::class,
             'normalisasiView'
